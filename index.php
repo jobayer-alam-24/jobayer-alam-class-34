@@ -136,14 +136,44 @@
     echo implode(' - ', $result['square']) . "<br>";
     echo "SUM OF SQUARE: " . $result['sum'] . "<br>";
 
+    //something about date
+    function dateFormat(){
+        define("Date", date('l'));
+
+        switch(Date){
+            case 'Saturday':
+                echo "Today is " . Date;
+                break;
+            case 'Sunday':
+                echo "Today is " . Date;
+                break;
+            case 'Monday':
+                echo "Today is " . Date;
+                break;
+            case 'Tuesday':
+                echo "Today is " . Date;
+                break;
+            case 'Wednesday':
+                echo "Today is " . Date;
+                break;
+            case 'Thursday':
+                echo "Today is " . Date;
+                break;
+            case 'Friday':
+                echo "Today is " . Date;
+                break;
+            
+        }
+    }
+    dateFormat();
     //pattern print
-    for($i = 0; $i < 10; $i++){
+    for($i = 0; $i < 5; $i++){
         echo "<br>";
         for($j = 0; $j < $i; $j++){
             echo "* ";
         }
     }
-    for($i = 10; $i > 0; $i--){
+    for($i = 5; $i > 0; $i--){
         echo "<br>";
         for($j = 0; $j < $i; $j++){
             echo "* ";
