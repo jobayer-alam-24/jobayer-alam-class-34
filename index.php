@@ -8,13 +8,65 @@
         body{
             font-family: verdana, sans-serif;
         }
+        .date{
+            text-align: center;
+            background-color: blue;
+            color: white;
+        }
     </style>
 </head>
 <body>
+    <div>
+        <?php
+          $datePrint = date("Y - F - j - l");  
+        ?>
+            <h2 class="date"><?php echo $datePrint; ?></h2>
+        <?php
+        ?>
+    </div>
     <form action="index.php" method="post">
         <input type="text" name="grade" placeholder="What is your GRADE? " required><p></p>
         <input type="text" name="age" placeholder="What is your AGE? " required><p></p>
-        <button type="submit">Submit</button>
+        <label>Select your birthday: </label>
+        <label for="year">Year</label>
+        <select name="birthday" id="year">
+            <?php 
+                $ini = 1991;
+                while($ini <= 2050){
+            ?>
+                <option value="<?php echo $ini; ?>"><?php echo $ini; ?></option>
+            <?php
+            $ini++;
+                }
+            ?>
+        </select>
+        <label for="year">Month</label>
+        <select name="birthday" id="month">
+            <?php 
+                $monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                foreach($monthArray as $singleMonth){
+            ?>
+                <option value="<?php echo $singleMonth; ?>"><?php echo $singleMonth; ?></option>
+            <?php
+                }
+            ?>
+        </select>
+        <label for="year">Day</label>
+        <select name="birthday" id="date">
+            <?php 
+                $ini = 1;
+                while($ini <= 31){
+            ?>
+                <option value="<?php echo $ini; ?>"><?php echo $ini ?></option>
+            <?php
+            $ini++;
+                }
+            ?>
+        </select>
+    
+        <p>
+            <button type="submit">Submit</button>
+        </p>
     </form>
 </body>
 </html>
@@ -50,7 +102,6 @@
     //Write a PHP script that takes a person's age and prints out their age
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["age"])) {
         $user_input = $_POST["age"];
-        
        if($user_input <= 12){
         echo "YOU ARE A Child";
        }
@@ -140,32 +191,35 @@
     function dateFormat(){
         define("Date", date('l'));
 
+
         switch(Date){
             case 'Saturday':
-                echo "Today is " . Date;
+                echo "Today is " . Date . "<br>";
                 break;
             case 'Sunday':
-                echo "Today is " . Date;
+                echo "Today is " . Date . "<br>";
                 break;
             case 'Monday':
                 echo "Today is " . Date;
                 break;
             case 'Tuesday':
-                echo "Today is " . Date;
+                echo "Today is " . Date . "<br>";
                 break;
             case 'Wednesday':
-                echo "Today is " . Date;
+                echo "Today is " . Date . "<br>";
                 break;
             case 'Thursday':
-                echo "Today is " . Date;
+                echo "Today is " . Date . "<br>";
                 break;
             case 'Friday':
-                echo "Today is " . Date;
+                echo "Today is " . Date . "<br>";
                 break;
             
         }
     }
     dateFormat();
+    $datePrint = date("Y - F - j - l");
+    echo $datePrint;
     //pattern print
     for($i = 0; $i < 5; $i++){
         echo "<br>";
