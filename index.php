@@ -29,7 +29,7 @@
         <input type="text" name="age" placeholder="What is your AGE? " required><p></p>
         <label>Select your birthday: </label>
         <label for="year">Year</label>
-        <select name="birthday" id="year">
+        <select name="yearSet" id="year">
             <?php 
                 $ini = 1991;
                 while($ini <= 2050){
@@ -41,7 +41,7 @@
             ?>
         </select>
         <label for="year">Month</label>
-        <select name="birthday" id="month">
+        <select name="month" id="month">
             <?php 
                 $monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 foreach($monthArray as $singleMonth){
@@ -52,7 +52,7 @@
             ?>
         </select>
         <label for="year">Day</label>
-        <select name="birthday" id="date">
+        <select name="day" id="date">
             <?php 
                 $ini = 1;
                 while($ini <= 31){
@@ -71,6 +71,18 @@
 </body>
 </html>
 <?php
+
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $selected_year = $_POST["yearSet"]; 
+        echo "Selected year: " . $selected_year . "<br>"; 
+        $selected_month = $_POST["month"]; 
+        echo "Selected month: " . $selected_month . "<br>"; 
+        $selected_date = $_POST["day"]; 
+        echo "Selected Date: " . $selected_date . "<br>"; 
+    }
+
     // Problem 1: Grade Evaluation
     // Write a PHP script that takes a letter grade (A, B, C, D, F) and outputs a description:
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["grade"])) {
